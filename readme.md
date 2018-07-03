@@ -4,6 +4,4 @@ Projeto realizado como processo seletivo para a empresa Instruct para "Vaga Web 
 
 ## Executando o projeto
 
-`git clone`
-`npm install`
-open `index.html`
+Clone o projeto, depois execute o comando: `npm install` e abra o arquivo `index.html`.
