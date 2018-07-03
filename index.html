@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+
+    <title>Instruct teste</title>
+    <meta charset="utf-8">
+
+    <link rel="stylesheet" href="style.css">
+
+  </head>
+
+  <body>
+
+    <div id="app">
+      <div v-for="user in users">
+        {{ user.id }} - {{ user.name}} - {{ user.email }}
+      </div>
+    </div>
+
+    <script src="node_modules/vue/dist/vue.min.js"></script>
+    <script src="node_modules/axios/dist/axios.min.js"></script>
+    <script src="script.js"></script>
+
+  </body>
+</html>
+
