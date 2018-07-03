@@ -12,7 +12,15 @@
   <body>
 
     <div id="app">
-      <div v-for="user in users">
+      <select v-model="filterSelected">
+        <option value="">TODOS</option>
+        <option v-for="host in hosts" :value="host">
+          {{ host }}
+        </option>
+      </select>
+
+      {{ filterSelected }}
+      <div v-for="user in users" v-show="filterHost(user.email)">
         {{ user.id }} - {{ user.name}} - {{ user.email }}
       </div>
     </div>
