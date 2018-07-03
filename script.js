@@ -10,14 +10,14 @@ var app = new Vue({
     axios.get('http://jsonplaceholder.typicode.com/users')
       .then(function (response) {
         app.users = response.data;
-        app.hosts = app.getHosts();
+        app.hosts = [...new Set(app.getHosts())];
       });
   },
   methods: {
-    // dada a string retorna uma string com todos os caracteres depois do '@'
+    // dada a string retorna uma string com o final do email (.br, .net, etc.) 
     getHostFromEmail: function(email) {
       // expressão regular pra filtrar a string do email
-      let re = /@\S+/;
+      let re = /\.[0-9a-z]+$/i;
       let found = email.match(re);
 
       return found[0];
