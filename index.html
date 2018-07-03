@@ -5,6 +5,9 @@
     <title>Instruct teste</title>
     <meta charset="utf-8">
 
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet"> 
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="style.css">
 
   </head>
@@ -12,16 +15,45 @@
   <body>
 
     <div id="app">
-      <select v-model="filterSelected">
-        <option value="">TODOS</option>
-        <option v-for="host in hosts" :value="host">
-          {{ host }}
-        </option>
-      </select>
+      <div class="filter">
+        <label>Selecione o host de email:</label>
+        <select v-model="filterSelected">
+          <option value="">TODOS</option>
+          <option v-for="host in hosts" :value="host">
+            {{ host }}
+          </option>
+        </select>
+      </div>
 
-      {{ filterSelected }}
-      <div v-for="user in users" v-show="filterHost(user.email)">
-        {{ user.id }} - {{ user.name}} - {{ user.email }}
+      <div class="users">
+
+        <div class="user" v-for="user in users" v-show="filterHost(user.email)">
+          <div class="user-name">
+            <i class="fa fa-user"></i>
+            {{ user.name}} ({{user.username}})
+          </div>
+
+          <div class="user-email">
+            <i class="fa fa-envelope"></i>
+            {{ user.email }}
+          </div>
+
+          <div class="user-phone">
+            <i class="fa fa-phone"></i>
+            {{ user.phone }}
+          </div>
+
+          <div class="user-website">
+            <i class="fa fa-globe"></i>
+            {{ user.website}}
+          </div>
+
+          <div class="user-address">
+            <i class="fa fa-home"></i>
+            {{ user.address.street }} - {{ user.address.suite }} - {{ user.address.city }} - {{ user.address.zipcode }} - {{ user.address.geo.lat }} - {{ user.address.geo.lng }}
+          </div>
+
+        </div>
       </div>
     </div>
 
